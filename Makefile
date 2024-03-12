@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -g -std=c99 -Wall -I.
+CFLAGS = -O1 -std=c99 -Wall -I.
 
 # Emit a warning should any variable-length array be found within the code.
 CFLAGS += -Wvla
@@ -35,5 +35,8 @@ clean:
 
 distclean: clean
 	rm -f .cmd_history
+
+test: main
+	./main
 
 -include $(deps)
