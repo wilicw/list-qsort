@@ -67,3 +67,20 @@ void q_quicksort(struct list_head *head, bool descend)
         }
     }
 }
+
+bool q_is_sorted(struct list_head *head, bool descend)
+{
+    if (!head || list_empty(head) || list_is_singular(head))
+        return true;
+
+    int last = list_entry(head->next, element_t, list)->value;
+    element_t *element;
+    list_for_each_entry (element, head, list) {
+        int cur = element->value;
+        if (q_sort_cmp(&cur, &last, descend) < 0)
+            return false;
+        last = cur;
+    }
+
+    return true;
+}

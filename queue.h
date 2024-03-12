@@ -25,5 +25,6 @@ typedef struct {
 } element_t;
 
 void q_quicksort(struct list_head *head, bool descend);
+bool q_is_sorted(struct list_head *head, bool descend);
 
 #endif
